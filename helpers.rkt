@@ -3,7 +3,8 @@
 #lang racket
 
 (provide digits->number
-         number->digits)
+         number->digits
+         palindrome?)
 
 (define (number->digits n)
   (if (< n 10)
@@ -15,3 +16,7 @@
       0
       (+ (* (car digits) (expt 10 (sub1 (length digits))))
          (digits->number (cdr digits)))))
+
+(define (palindrome? n)
+  (let ([digits (number->digits n)])
+    (equal? digits (reverse digits))))

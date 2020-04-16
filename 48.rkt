@@ -7,4 +7,4 @@
 (define result
   (foldr + 0 (map (lambda (x) (expt x x)) (range 1 1001))))
 
-(digits->number (reverse (take (number->digits result) 10)))
+(digits->number (take-right (number->digits result) 10))
